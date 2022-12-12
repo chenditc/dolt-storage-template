@@ -11,6 +11,10 @@ We can build a docker from this template, run the docker as a sidecar for our wo
 6. Easy to inject. We can inject data easily using dol sql and dolt push.
 7. No cloud vender lock in. We can change the dolt remote to our private endpoint: https://www.dolthub.com/blog/2021-09-22-sql-remotes/, we can also run our own doltlab: https://docs.dolthub.com/guides/doltlab
 
+## Use this template
+
+It's recommended to fork and **rename** this repo to some name meaningful for your use, so that github action can properly build docker image.
+
 ## Build
 
 Build a docker for your repo, and maybe set a timezone you want:
@@ -30,6 +34,9 @@ docker build --build-arg DATABASE_NAME=trading_record \
     --build-arg TIMEZONE=Asia/Shanghai \
     -t dolt-storage .
 ```
+
+Or you can leverage the github action by setting `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` credential in the forked project.
+Then you can trigger a build by creating a tag starting with "v", eg "v1.0.0"
 
 ## Use
 
