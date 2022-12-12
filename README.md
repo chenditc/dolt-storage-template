@@ -35,7 +35,7 @@ docker build --build-arg DATABASE_NAME=trading_record \
     -t dolt-storage .
 ```
 
-Or you can leverage the github action by setting `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` credential in the forked project.
+Or you can leverage the github action by setting `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` credential in the forked project. Also change the "build-args" in the workflow to pass your arguments.
 Then you can trigger a build by creating a tag starting with "v", eg "v1.0.0"
 
 ## Use
@@ -58,9 +58,3 @@ $ cat /.dolt/.dolt/creds/n0q6a6qdff51ifsigj7ugber3tmh8dj2bjt8d86kp7d42.jwk
 {"d":"a8X_0sbqQYPQ_kMtBM8f0i_VAGJ_iXdoXNlSSV5d1uo=","x":"cyAGlzUmWpaLgHtC6uV8OxrdqCTZVeTkYcolLmhe2_Vrxf_SxupBg9D-Qy0Ezx_SL9UAYn-Jd2hc2VJJXl3W6g==","kty":"OKP","crv":"Ed25519"}
 ```
 
-### Use as sidecar
-
-I usually use it as a side car sql server and other container in k8s pod can use it:
-
-```
-```
