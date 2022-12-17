@@ -15,7 +15,7 @@ env:
   REGISTRY: docker.io 
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  DATABASE_: vnpy
+  DATABASE_NAME: vnpy
   TIMEZONE: Asia/Shanghai
 
 jobs:
