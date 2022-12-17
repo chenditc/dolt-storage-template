@@ -1,4 +1,4 @@
-name: Docker
+name: vnpy
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -14,9 +14,8 @@ env:
   REGISTRY: docker.io 
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  DATABASE_NAME: vnpy
-  DOLTHUB_USER=chenditc
-  TIMEZONE=Asia/Shanghai
+  DATABASE_: vnpy
+  TIMEZONE: Asia/Shanghai
 
 jobs:
   build:
@@ -78,5 +77,5 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             DATABASE_NAME=${{ env.DATABASE_NAME }}
-            DOLTHUB_USER=${{ env.DOLTHUB_USER }}
+            DOLTHUB_USER=${{ secrets.DOCKERHUB_USERNAME }}
             TIMEZONE=${{ env.TIMEZONE }}
