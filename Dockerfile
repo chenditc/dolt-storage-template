@@ -99,7 +99,7 @@ clone_database() {
   then
     echo "Database found at \$DATA_DIR, skipping clone, performing pull..."
       local wd=\$(pwd)
-      cd "/dolthub-dbs/$DOLTHUB_USER/$DATABASE_REMOTE"
+      cd "\$DATA_DIR"
       dolt pull
   else
   echo "Cloning database..."
@@ -143,7 +143,7 @@ _main "\$@"
   
 EOF
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh && /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 WORKDIR /dolthub-dbs/$DOLTHUB_USER
