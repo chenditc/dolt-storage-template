@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 WORKDIR /
 RUN apt update &&     apt upgrade -y &&     apt install -y curl     && curl -L https://github.com/dolthub/dolt/releases/latest/download/install.sh | bash
 RUN apt-get install -y python3 python3-pip
-RUN pip install requests Flask pymysql pandas
+RUN pip install requests Flask pymysql pandas sqlalchemy
 
 COPY dolt_http_server.py start_dolt_http_server.sh /
 
