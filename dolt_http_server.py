@@ -1,4 +1,5 @@
 import os
+import signal
 import json
 import pymysql
 import pandas as pd
@@ -105,5 +106,9 @@ def upsert_df():
     df.to_sql(table, con=g.db_connection, if_exists='append', index=False)
     return {"error": ""}
 
-
+@app.route('/shutdown', methods=['POST'])
+@check_prerequisite
+def shudown():
+    os.kill(os.getpid(), signal.SIGINT)
+    return { "success": True, "message": "Server is shutting down..." }
 
