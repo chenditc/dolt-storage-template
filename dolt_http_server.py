@@ -51,7 +51,7 @@ def run_dml_sql():
         g.db_connection.execute(sql)
     except Exception as e:
         print(e)
-        return {"error": "Exception"}
+        return {"error": f"Exception: {e}"}
     return {"error": ""}
 
 @app.route("/dql", methods=['POST'])
