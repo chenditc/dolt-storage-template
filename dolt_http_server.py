@@ -3,7 +3,8 @@ import signal
 import json
 import pymysql
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
+
 from functools import wraps
 from flask import Flask, request, g
 
@@ -48,7 +49,7 @@ def run_dml_sql():
         return {"error": "No sql"}
 
     try:
-        g.db_connection.execute(sql)
+        g.db_connection.execute(text(sql))
     except Exception as e:
         print(e)
         return {"error": f"Exception: {e}"}

@@ -1,5 +1,5 @@
 #!/bin/bash
-dolt sql-server &
+dolt sql-server -H 0.0.0.0 &
 
 script_dir=$(dirname ${BASH_SOURCE[0]})
 
