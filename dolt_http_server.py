@@ -10,7 +10,7 @@ from flask import Flask, request, g
 app = Flask(__name__)
 
 AUTH_TOKEN = os.environ.get("DOLT_HTTP_TOKEN", "token")
-DB_NAME = os.environ.get("DOLT_DB_NAME", "")
+DB_NAME = os.environ.get("DATABASE_NAME", "")
 
 def check_prerequisite(f):
     @wraps(f)
