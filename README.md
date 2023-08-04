@@ -11,6 +11,8 @@ We can build a docker from this template, run the docker as a sidecar for our wo
 6. Easy to inject. We can inject data easily using dol sql and dolt push.
 7. No cloud vender lock in. We can change the dolt remote to our private endpoint: https://www.dolthub.com/blog/2021-09-22-sql-remotes/, we can also run our own doltlab: https://docs.dolthub.com/guides/doltlab
 
+**NOTE: The dolt project need to have at least one table to be able to build.**
+
 ## Use this template
 
 It's recommended to fork and **rename** this repo to some name meaningful for your use, so that github action can properly build docker image.
