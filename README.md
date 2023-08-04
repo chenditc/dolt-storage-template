@@ -38,7 +38,7 @@ docker build --build-arg DATABASE_NAME=trading_record \
 Or you can leverage the github action by setting `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` credential in the forked project. Also change the "build-args" in the workflow to pass your arguments.
 Then you can trigger a build by creating a tag starting with "v", eg "v1.0.0"
 
-## Use
+## Use as mysql server
 
 Run your docker and use dolt cli, pass credential in using environment variable:
 
@@ -58,3 +58,16 @@ $ cat /.dolt/.dolt/creds/n0q6a6qdff51ifsigj7ugber3tmh8dj2bjt8d86kp7d42.jwk
 {"d":"a8X_0sbqQYPQ_kMtBM8f0i_VAGJ_iXdoXNlSSV5d1uo=","x":"cyAGlzUmWpaLgHtC6uV8OxrdqCTZVeTkYcolLmhe2_Vrxf_SxupBg9D-Qy0Ezx_SL9UAYn-Jd2hc2VJJXl3W6g==","kty":"OKP","crv":"Ed25519"}
 ```
 
+## Use as http server
+
+The default auth token is same as the DBNAME.
+
+Start docker and export port 5000
+```
+docker run -e CREDS_KEY=xxxx \
+   -p 5000:5000
+   -e CREDS_VALUE='{"d":"xxxxx","x":"xxx","kty":"OKP","crv":"Ed25519"}' \
+   --rm -it  dolt-storage dolt sql
+```
+
+Use http request to operate database. See file [dolt_http_server.py](dolt_http_server.py)
