@@ -67,9 +67,10 @@ The default auth token is same as the DBNAME.
 Start docker and export port 5000
 ```
 docker run -e CREDS_KEY=xxxx \
-   -p 5000:5000
+   -e AUTH_TOKEN=xxxxxx \
+   -p 5000:5000 \
    -e CREDS_VALUE='{"d":"xxxxx","x":"xxx","kty":"OKP","crv":"Ed25519"}' \
-   --rm -it  dolt-storage dolt sql
+   --rm -it  dolt-storage /start_dolt_http_server.sh
 ```
 
 Use http request to operate database. See file [dolt_http_server.py](dolt_http_server.py)
