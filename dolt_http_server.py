@@ -72,7 +72,7 @@ def run_dql_sql():
         return {"error": "No sql"}
 
     orient = g.data.get("orient", "tight")
-    df = pd.read_sql(sql, g.db_connection)
+    df = pd.read_sql_query(sql, g.db_connection)
     result = df.to_dict(orient=orient)
     return {"error": "", "result": result}
 
