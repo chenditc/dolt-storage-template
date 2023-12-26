@@ -74,3 +74,4 @@ docker run -e CREDS_KEY=xxxx \
 ```
 
 Use http request to operate database. See file [dolt_http_server.py](dolt_http_server.py)
+
