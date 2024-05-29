@@ -7,8 +7,8 @@ name: investment_data
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 5 * * *'
+#  schedule:
+#    - cron: '30 5 * * *'
 
 env:
   # Use docker.io for Docker Hub if empty
